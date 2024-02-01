@@ -1,0 +1,90 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Launch_Connection.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:Launch_Connection.Views"
+        mc:Ignorable="d" Width="1000" Height="580"
+		MinWidth="800" MinHeight="450"
+        x:Class="Launch_Connection.Views.MainWindow"
+        Icon="/Assets/logo.ico" Title="Launch Connection"
+		WindowStartupLocation="CenterScreen"
+		ExtendClientAreaToDecorationsHint="True"
+		ExtendClientAreaChromeHints="NoChrome"
+		ExtendClientAreaTitleBarHeightHint="-1"
+		xmlns:ui="using:FluentAvalonia.UI.Controls">
+
+	<Window.Styles>
+		<Style Selector="ui|FontIcon">
+			<Setter Property="FontFamily" Value="resm:Launch_Connection.Fonts.SegoeIcons.ttf"/>
+		</Style>
+		<Style Selector="ui|NavigationViewItem">
+			<Setter Property="Width" Value="75"/>
+			<Setter Property="Height" Value="70"/>
+		</Style>
+	</Window.Styles>
+
+	<Grid>
+		<Grid Name="AppTitleBar" Height="45">
+
+		</Grid>
+
+		<ui:NavigationView
+			OpenPaneLength="72"
+			Margin="1,45,0,0"
+            IsBackButtonVisible="False"
+			IsPaneToggleButtonVisible="False"
+            IsPaneOpen="True"
+			SelectionChanged="NavigationView_SelectionChanged"
+			x:Name="NavigationView_Name"
+            IsSettingsVisible="False"
+            PaneDisplayMode="Left">
+
+			<ui:NavigationView.MenuItems>
+				<ui:NavigationViewItem Tag="HomePage" IsSelected="True">
+					<StackPanel>
+						<ui:FontIcon FontSize="18" Glyph="&#xE80F;" />
+						<TextBlock Margin="-2,0,0,0" Text="主页" />
+					</StackPanel>
+				</ui:NavigationViewItem>
+				<ui:NavigationViewItem>
+					<StackPanel>
+						<ui:FontIcon FontSize="18" Glyph="&#xE138;" />
+						<TextBlock Margin="-1.5,0,0,0" Text="隧道" />
+					</StackPanel>
+				</ui:NavigationViewItem>
+				<ui:NavigationViewItem>
+					<StackPanel>
+						<ui:FontIcon FontSize="18" Glyph="&#xE14C;" />
+						<TextBlock Margin="-4,0,0,0" Text="日志" />
+					</StackPanel>
+				</ui:NavigationViewItem>
+				<ui:NavigationViewItem>
+					<StackPanel>
+						<ui:FontIcon FontSize="18" Glyph="&#xE7B8;" />
+						<TextBlock Margin="-2,0,0,0" Text="扩展" />
+					</StackPanel>
+				</ui:NavigationViewItem>
+			</ui:NavigationView.MenuItems>
+			<ui:NavigationView.FooterMenuItems>
+				<ui:NavigationViewItem>
+					<StackPanel>
+						<ui:FontIcon FontSize="18" Glyph="&#xE2AF;" />
+						<TextBlock Margin="-2,0,0,0" Text="账号" />
+					</StackPanel>
+				</ui:NavigationViewItem>
+				<ui:NavigationViewItem>
+					<StackPanel>
+						<ui:FontIcon FontSize="18" Glyph="&#xE713;" />
+						<TextBlock Margin="-2,0,0,0" Text="设置" />
+					</StackPanel>
+				</ui:NavigationViewItem>
+			</ui:NavigationView.FooterMenuItems>
+			<ui:Frame Name="NavigationView_Frame" />
+		</ui:NavigationView>
+
+		<!--<StackPanel HorizontalAlignment="Right">
+			<NotificationCard Width="320" Height="100"/>
+		</StackPanel>-->
+	</Grid>
+</Window>
