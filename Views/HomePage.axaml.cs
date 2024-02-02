@@ -1,12 +1,31 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
+using Launch_Connection.Services;
 
-namespace Launch_Connection.Views
+namespace Launch_Connection.Views;
+
+public partial class HomePage : UserControl
 {
-    public partial class HomePage : UserControl
+    public HomePage()
     {
-        public HomePage()
+        InitializeComponent(); InitializeDisposition();
+    }
+    private void InitializeDisposition()
+    {
+        Notice_Load();
+    }
+    private async void Notice_Load()
+    {
+        Notice_Error.IsVisible = false;
+        try
         {
-            InitializeComponent();
+            var result = await HttpRequest.Get($"{App.Api_url}official/lc/public/notice"); //公告获取
+            //Notice.Children.Add(AvaloniaXamlLoader.Load((System.IServiceProvider?)this, result.ToString()));
+        }
+        catch
+        {
+            Notice_Error.IsVisible = true;
         }
     }
+    private void Notice_Retry_Click(object sender, RoutedEventArgs e) => Notice_Load();
 }

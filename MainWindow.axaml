@@ -1,32 +1,47 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:Launch_Connection.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:Launch_Connection.Views"
-        mc:Ignorable="d" Width="1000" Height="580"
+        mc:Ignorable="d" Width="1000" Height="600"
 		MinWidth="800" MinHeight="450"
         x:Class="Launch_Connection.Views.MainWindow"
-        Icon="/Assets/logo.ico" Title="Launch Connection"
+        Title="Launch Connection For " Icon="/Assets/logo.ico"
 		WindowStartupLocation="CenterScreen"
 		ExtendClientAreaToDecorationsHint="True"
 		ExtendClientAreaChromeHints="NoChrome"
-		ExtendClientAreaTitleBarHeightHint="-1"
+		ExtendClientAreaTitleBarHeightHint="45"
 		xmlns:ui="using:FluentAvalonia.UI.Controls">
 
-	<Window.Styles>
-		<Style Selector="ui|FontIcon">
-			<Setter Property="FontFamily" Value="resm:Launch_Connection.Fonts.SegoeIcons.ttf"/>
-		</Style>
-		<Style Selector="ui|NavigationViewItem">
-			<Setter Property="Width" Value="75"/>
-			<Setter Property="Height" Value="70"/>
-		</Style>
-	</Window.Styles>
-
 	<Grid>
-		<Grid Name="AppTitleBar" Height="45">
-
+		<Grid VerticalAlignment="Top" Name="AppTitleBar" Height="45">
+			<TextBlock Name="_Title" VerticalAlignment="Center" Margin="15,0,0,0" Text="Launch Connection For "/>
+			<StackPanel Spacing="5" Orientation="Horizontal" Margin="0,0,8,0" VerticalAlignment="Center" HorizontalAlignment="Right">
+				<StackPanel.Styles>
+					<Style Selector="Button">
+						<Setter Property="Width" Value="32"/>
+						<Setter Property="Height" Value="30"/>
+						<Setter Property="Background" Value="Transparent"/>
+						<Setter Property="BorderBrush" Value="Transparent"/>
+					</Style>
+					<Style Selector="ui|FontIcon">
+						<Setter Property="FontSize" Value="8"/>
+					</Style>
+				</StackPanel.Styles>
+				<Button>
+					<ui:FontIcon FontSize="11" Margin="0,0,0,0" Glyph="&#xF2A3;"/>
+				</Button>
+				<ui:FontIcon Opacity="0.3" FontSize="18" Margin="-5,0,-5,1" Glyph="&#xF464;"/>
+				<Button Click="Window_Minimise_Click">
+					<ui:FontIcon Margin="0,0,0,0" Glyph="&#xE654;"/>
+				</Button>
+				<Button Click="Window_Maximise_Click">
+					<ui:FontIcon Margin="0,0,0,0" Glyph="&#xE655;" Name="Window_Maximise_Icon"/>
+				</Button>
+				<Button Click="Window_Close_Click">
+					<ui:FontIcon Margin="0,0,0,0" Glyph="&#xE653;"/>
+				</Button>
+			</StackPanel>
 		</Grid>
 
 		<ui:NavigationView
@@ -36,7 +51,7 @@
 			IsPaneToggleButtonVisible="False"
             IsPaneOpen="True"
 			SelectionChanged="NavigationView_SelectionChanged"
-			x:Name="NavigationView_Name"
+			Name="NavigationView_Name"
             IsSettingsVisible="False"
             PaneDisplayMode="Left">
 
@@ -47,7 +62,7 @@
 						<TextBlock Margin="-2,0,0,0" Text="主页" />
 					</StackPanel>
 				</ui:NavigationViewItem>
-				<ui:NavigationViewItem>
+				<ui:NavigationViewItem Tag="LogsPage">
 					<StackPanel>
 						<ui:FontIcon FontSize="18" Glyph="&#xE138;" />
 						<TextBlock Margin="-1.5,0,0,0" Text="隧道" />
@@ -80,11 +95,35 @@
 					</StackPanel>
 				</ui:NavigationViewItem>
 			</ui:NavigationView.FooterMenuItems>
-			<ui:Frame Name="NavigationView_Frame" />
+			<StackPanel>
+				<TextBlock Name="Header" Margin="15,11,15,0" FontWeight="Black" FontSize="28" />
+				<ui:Frame Name="NavigationView_Frame" Margin="15,11,15,0" />
+			</StackPanel>
 		</ui:NavigationView>
 
-		<!--<StackPanel HorizontalAlignment="Right">
-			<NotificationCard Width="320" Height="100"/>
-		</StackPanel>-->
+		<!--<ScrollViewer Width="300" Margin="0,45,0,0" HorizontalAlignment="Right">
+			<StackPanel Name="Notice_StackPanel">
+				<NotificationCard Width="300">
+					<StackPanel>
+						<TextBlock Text="123"/>
+					</StackPanel>
+				</NotificationCard>
+			</StackPanel>
+		</ScrollViewer>-->
 	</Grid>
+
+	<Window.Styles>
+		<Styles>
+			<Styles.Resources>
+				<FontFamily x:Key="SegoeIcons">resm:Launch_Connection.Fonts.SegoeIcons.ttf?assembly=Launch_Connection#Segoe Fluent Icons</FontFamily>
+			</Styles.Resources>
+			<Style Selector="ui|FontIcon">
+				<Setter Property="FontFamily" Value="{StaticResource SegoeIcons}"/>
+			</Style>
+			<Style Selector="ui|NavigationViewItem">
+				<Setter Property="Width" Value="75"/>
+				<Setter Property="Height" Value="70"/>
+			</Style>
+		</Styles>
+	</Window.Styles>
 </Window>
