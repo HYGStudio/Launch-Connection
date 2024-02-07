@@ -12,7 +12,7 @@ public partial class HomePage : UserControl
     }
     private void InitializeDisposition()
     {
-        Notice_Load();
+        //Notice_Load();
     }
     private async void Notice_Load()
     {

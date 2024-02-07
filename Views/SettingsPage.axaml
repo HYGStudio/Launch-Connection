@@ -1,0 +1,35 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Tag="设置"
+			 xmlns:ui="using:FluentAvalonia.UI.Controls"
+             x:Class="Launch_Connection.Views.SettingsPage">
+
+	<ScrollViewer>
+		<StackPanel Spacing="5">
+			<Grid Margin="0,0,0,5">
+				<ui:HyperlinkButton
+					MaxWidth="195"
+					NavigateUri="https://github.com/HYGStudio/Launch-Connection">
+					<TextBlock Text="Launch Connection Release" />
+				</ui:HyperlinkButton>
+				<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+					<ui:HyperlinkButton MaxWidth="102" NavigateUri="https://lc.rivfox.com">
+						<TextBlock Text="Version 2.0.0" />
+					</ui:HyperlinkButton>
+					<ui:HyperlinkButton MaxWidth="110" NavigateUri="https://github.com/HYGStudio/Launch-Connection/blob/main/LICENSE">
+						<TextBlock Text="GNU GPL 3.0" />
+					</ui:HyperlinkButton>
+					<ui:HyperlinkButton MaxWidth="75" NavigateUri="https://dotnet.microsoft.com/">
+						<TextBlock Text=".NET 7.0" />
+					</ui:HyperlinkButton>
+					<ui:HyperlinkButton MaxWidth="130" NavigateUri="https://www.avaloniaui.net/">
+						<TextBlock Text="Avalonia UI 11.0.4" />
+					</ui:HyperlinkButton>
+				</StackPanel>
+			</Grid>
+
+		</StackPanel>
+	</ScrollViewer>
+</UserControl>

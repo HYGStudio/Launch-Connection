@@ -4,9 +4,6 @@ using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 
 using Launch_Connection.Views;
-using Microsoft.AppCenter.Crashes;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
 
 namespace Launch_Connection;
 
@@ -26,8 +23,8 @@ public partial class App : Application
         {
             singleViewPlatform.MainView = new MainWindow();
         }
-
         base.OnFrameworkInitializationCompleted();
-        // AppCenter.Start("90d1c6e3-31fe-4c8d-a14e-367e7efacb7c", typeof(Analytics), typeof(Crashes));
     }
+    private void Show_Window(object? sender, System.EventArgs e) => MainWindow.Main.Show();
+    private void Close_Window(object? sender, System.EventArgs e) => MainWindow.Main.Close();
 }

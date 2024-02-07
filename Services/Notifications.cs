@@ -1,7 +1,4 @@
-﻿using Avalonia;
-using System;
-
-namespace Launch_Connection.Services;
+﻿namespace Launch_Connection.Services;
 
 internal class Notifications
 {
