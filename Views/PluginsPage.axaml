@@ -3,7 +3,71 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" Tag="扩展"
-			 xmlns:ui="using:FluentAvalonia.UI.Controls"
+             xmlns:ui="using:FluentAvalonia.UI.Controls"
              x:Class="Launch_Connection.Views.PluginsPage">
-	Welcome to Avalonia!
+    <Grid ColumnDefinitions="*">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid>
+                <ui:CommandBar IsDynamicOverflowEnabled="False" HorizontalAlignment="Left"
+                               DefaultLabelPosition="Right">
+                    <ui:CommandBarButton Click="Plugins_List_Refresh_Click" Name="Plugins_List_Refresh" Label="刷新">
+                        <ui:CommandBarButton.IconSource>
+                            <ui:SymbolIconSource Symbol="Refresh" />
+                        </ui:CommandBarButton.IconSource>
+                    </ui:CommandBarButton>
+                </ui:CommandBar>
+            </Grid>
+            <ComboBox Name="Plugins_Source" HorizontalAlignment="Right" Width="180" Margin="0,8,0,0">
+                <ComboBoxItem Tag="0" Content="RivFox" />
+                <ComboBoxItem Tag="1" Content="Github" />
+            </ComboBox>
+        </Grid>
+        <ScrollViewer Grid.Row="1">
+            <ListBox Name="Plugins_List">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,2,0,2">
+                            <StackPanel VerticalAlignment="Center">
+                                <StackPanel Orientation="Horizontal" Spacing="3">
+                                    <TextBlock Text="{Binding Title}" />
+                                    <TextBlock Opacity="0.5" Text="{Binding Based}" />
+                                    <TextBlock Opacity="0.5" Text="{Binding Version}" />
+                                </StackPanel>
+                                <TextBlock TextTrimming="wordEllipsis" HorizontalAlignment="Left" Opacity="0.5"
+                                           MaxWidth="300" Text="{Binding Intro}" />
+                                <TextBlock Opacity="0.5" Text="{Binding Terrace}" />
+                            </StackPanel>
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right"
+                                        Orientation="Horizontal" Spacing="5">
+                                <StackPanel.Styles>
+                                    <Style Selector="Button">
+                                        <Setter Property="Width" Value="38" />
+                                        <Setter Property="Height" Value="38" />
+                                        <Setter Property="Background" Value="Transparent" />
+                                        <Setter Property="BorderBrush" Value="Transparent" />
+                                    </Style>
+                                    <Style Selector="ui|FontIcon">
+                                        <Setter Property="FontSize" Value="14" />
+                                    </Style>
+                                </StackPanel.Styles>
+                                <Button Click="Plugins_List_Info_Click">
+                                    <ui:FontIcon Glyph="&#xE946;" />
+                                </Button>
+                                <Button Click="Plugins_List_Download_Click">
+                                    <ui:FontIcon Glyph="&#xE896;" />
+                                </Button>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+        <ui:ProgressRing Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" BorderThickness="5"
+                         IsIndeterminate="True" Width="50" Height="50" Margin="0,-52,0,0" Name="Loading" />
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,-52,0,0" Name="Error" />
+    </Grid>
 </UserControl>

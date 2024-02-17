@@ -2,125 +2,125 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:Launch_Connection.Views"
         mc:Ignorable="d" Width="1000" Height="600"
-		MinWidth="800" MinHeight="450"
-		WindowStartupLocation="CenterScreen"
-		ExtendClientAreaToDecorationsHint="True"
-		ExtendClientAreaChromeHints="NoChrome"
-		ExtendClientAreaTitleBarHeightHint="45"
-        x:Class="Launch_Connection.Views.MainWindow"
+        MinWidth="800" MinHeight="450"
+        WindowStartupLocation="CenterScreen"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaTitleBarHeightHint="45"
+        x:Class="Launch_Connection.MainWindow"
         Title="Launch Connection For " Icon="/Assets/logo.ico"
-		xmlns:ui="using:FluentAvalonia.UI.Controls">
+        xmlns:ui="using:FluentAvalonia.UI.Controls">
 
-	<Grid>
-		<Grid VerticalAlignment="Top" Name="AppTitleBar" Height="45">
-			<TextBlock Name="_Title" VerticalAlignment="Center" Margin="15,0,0,0" Text="Launch Connection V2.0.0 For "/>
-			<StackPanel Spacing="5" Orientation="Horizontal" Margin="0,0,8,0" VerticalAlignment="Center" HorizontalAlignment="Right">
-				<StackPanel.Styles>
-					<Style Selector="Button">
-						<Setter Property="Width" Value="32"/>
-						<Setter Property="Height" Value="30"/>
-						<Setter Property="Background" Value="Transparent"/>
-						<Setter Property="BorderBrush" Value="Transparent"/>
-					</Style>
-					<Style Selector="ui|FontIcon">
-						<Setter Property="FontSize" Value="8"/>
-					</Style>
-				</StackPanel.Styles>
-				<Button>
-					<ui:FontIcon FontSize="10" Margin="0,0,0,0" Glyph="&#xF2A3;"/>
-					<Button.Flyout>
-						<Flyout Placement="Bottom">
-							<ListBox Width="250">
-								<ListBox.Items>
-									<ListBoxItem Content="213"/>
-									<ListBoxItem Content="213"/>
-									<ListBoxItem Content="213"/>
-									<ListBoxItem Content="213"/>
-								</ListBox.Items>
-							</ListBox>
-						</Flyout>
-					</Button.Flyout>
-				</Button>
-				<ui:FontIcon Opacity="0.3" FontSize="18" Margin="-5,0,-5,1" Glyph="&#xF464;"/>
-				<Button Click="Window_Minimise_Click">
-					<ui:FontIcon Margin="0,0,0,0" Glyph="&#xE654;"/>
-				</Button>
-				<Button Click="Window_Maximise_Click">
-					<ui:FontIcon Margin="0,0,0,0" Glyph="&#xE655;" Name="Window_Maximise_Icon"/>
-				</Button>
-				<Button Click="Window_Close_Click">
-					<ui:FontIcon Margin="0,0,0,0" Glyph="&#xE653;"/>
-				</Button>
-			</StackPanel>
-		</Grid>
+    <Grid>
+        <Grid VerticalAlignment="Top" Name="AppTitleBar" Height="45">
+            <TextBlock Name="_Title" VerticalAlignment="Center" Margin="15,0,0,0" Text="Launch Connection V2.0.0 For " />
+            <StackPanel Spacing="5" Orientation="Horizontal" Margin="0,0,8,0" VerticalAlignment="Center"
+                        HorizontalAlignment="Right">
+                <StackPanel.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="Width" Value="32" />
+                        <Setter Property="Height" Value="30" />
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="BorderBrush" Value="Transparent" />
+                    </Style>
+                    <Style Selector="ui|FontIcon">
+                        <Setter Property="FontSize" Value="8" />
+                    </Style>
+                </StackPanel.Styles>
+                <Button>
+                    <ui:FontIcon FontSize="10" Margin="0,0,0,0" Glyph="&#xF2A3;" />
+                    <Button.Flyout>
+                        <Flyout Placement="Bottom">
+                            <ListBox Width="250">
+                                <ListBox.Items>
+                                    <ListBoxItem Content="213" />
+                                    <ListBoxItem Content="213" />
+                                    <ListBoxItem Content="213" />
+                                    <ListBoxItem Content="213" />
+                                </ListBox.Items>
+                            </ListBox>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
+                <ui:FontIcon Opacity="0.3" FontSize="18" Margin="-5,0,-5,1" Glyph="&#xF464;" />
+                <Button Click="Window_Minimise_Click">
+                    <ui:FontIcon Margin="0,0,0,0" Glyph="&#xE654;" />
+                </Button>
+                <Button Click="Window_Maximise_Click">
+                    <ui:FontIcon Margin="0,0,0,0" Glyph="&#xE655;" Name="Window_Maximise_Icon" />
+                </Button>
+                <Button Click="Window_Close_Click">
+                    <ui:FontIcon Margin="0,0,0,0" Glyph="&#xE653;" />
+                </Button>
+            </StackPanel>
+        </Grid>
 
-		<ui:NavigationView
-			OpenPaneLength="72"
-			Margin="1,45,0,0"
+        <ui:NavigationView
+            OpenPaneLength="72"
+            Margin="1,45,0,0"
             IsBackButtonVisible="False"
-			IsPaneToggleButtonVisible="False"
+            IsPaneToggleButtonVisible="False"
             IsPaneOpen="True"
-			SelectionChanged="NavigationView_SelectionChanged"
-			Name="NavigationView_Name"
+            SelectionChanged="NavigationView_SelectionChanged"
+            Name="NavigationView_Name"
             IsSettingsVisible="False"
             PaneDisplayMode="Left">
-			<ui:NavigationView.Styles>
-				<Styles>
-					<Style Selector="ui|NavigationViewItem">
-						<Setter Property="Width" Value="75"/>
-						<Setter Property="Height" Value="70"/>
-					</Style>
-				</Styles>
-			</ui:NavigationView.Styles>
-			<ui:NavigationView.MenuItems>
-				<ui:NavigationViewItem Tag="HomePage" IsSelected="True">
-					<StackPanel>
-						<ui:FontIcon FontSize="18" Glyph="&#xE80F;" />
-						<TextBlock Margin="-2,0,0,0" Text="主页" />
-					</StackPanel>
-				</ui:NavigationViewItem>
-				<ui:NavigationViewItem Tag="TunnelsPage">
-					<StackPanel>
-						<ui:FontIcon FontSize="18" Glyph="&#xE138;" />
-						<TextBlock Margin="-1.5,0,0,0" Text="隧道" />
-					</StackPanel>
-				</ui:NavigationViewItem>
-				<ui:NavigationViewItem Tag="LogsPage">
-					<StackPanel>
-						<ui:FontIcon FontSize="18" Glyph="&#xE14C;" />
-						<TextBlock Margin="-4,0,0,0" Text="日志" />
-					</StackPanel>
-				</ui:NavigationViewItem>
-				<ui:NavigationViewItem Tag="PluginsPage">
-					<StackPanel>
-						<ui:FontIcon FontSize="18" Glyph="&#xE7B8;" />
-						<TextBlock Margin="-2,0,0,0" Text="扩展" />
-					</StackPanel>
-				</ui:NavigationViewItem>
-			</ui:NavigationView.MenuItems>
-			<ui:NavigationView.FooterMenuItems>
-				<ui:NavigationViewItem Tag="UserPage">
-					<StackPanel>
-						<ui:FontIcon FontSize="18" Glyph="&#xE2AF;" />
-						<TextBlock Margin="-2,0,0,0" Text="账号" />
-					</StackPanel>
-				</ui:NavigationViewItem>
-				<ui:NavigationViewItem Tag="SettingsPage">
-					<StackPanel>
-						<ui:FontIcon FontSize="18" Glyph="&#xE713;" />
-						<TextBlock Margin="-2,0,0,0" Text="设置" />
-					</StackPanel>
-				</ui:NavigationViewItem>
-			</ui:NavigationView.FooterMenuItems>
-			<StackPanel>
-				<TextBlock Name="Header" Margin="15,11,15,0" FontWeight="Black" FontSize="28" />
-				<ui:Frame Name="NavigationView_Frame" Margin="15,11,15,0" />
-			</StackPanel>
-		</ui:NavigationView>
+            <ui:NavigationView.Styles>
+                <Styles>
+                    <Style Selector="ui|NavigationViewItem">
+                        <Setter Property="Width" Value="75" />
+                        <Setter Property="Height" Value="70" />
+                    </Style>
+                </Styles>
+            </ui:NavigationView.Styles>
+            <ui:NavigationView.MenuItems>
+                <ui:NavigationViewItem Tag="HomePage" IsSelected="True">
+                    <StackPanel>
+                        <ui:FontIcon FontSize="18" Glyph="&#xE80F;" />
+                        <TextBlock Margin="-2,0,0,0" Text="主页" />
+                    </StackPanel>
+                </ui:NavigationViewItem>
+                <ui:NavigationViewItem Tag="TunnelsPage">
+                    <StackPanel>
+                        <ui:FontIcon FontSize="18" Glyph="&#xE138;" />
+                        <TextBlock Margin="-1.5,0,0,0" Text="隧道" />
+                    </StackPanel>
+                </ui:NavigationViewItem>
+                <ui:NavigationViewItem Tag="LogsPage">
+                    <StackPanel>
+                        <ui:FontIcon FontSize="18" Glyph="&#xE14C;" />
+                        <TextBlock Margin="-4,0,0,0" Text="日志" />
+                    </StackPanel>
+                </ui:NavigationViewItem>
+                <ui:NavigationViewItem Tag="PluginsPage">
+                    <StackPanel>
+                        <ui:FontIcon FontSize="18" Glyph="&#xE7B8;" />
+                        <TextBlock Margin="-2,0,0,0" Text="扩展" />
+                    </StackPanel>
+                </ui:NavigationViewItem>
+            </ui:NavigationView.MenuItems>
+            <ui:NavigationView.FooterMenuItems>
+                <ui:NavigationViewItem Tag="UserPage">
+                    <StackPanel>
+                        <ui:FontIcon FontSize="18" Glyph="&#xE2AF;" />
+                        <TextBlock Margin="-2,0,0,0" Text="账号" />
+                    </StackPanel>
+                </ui:NavigationViewItem>
+                <ui:NavigationViewItem Tag="SettingsPage">
+                    <StackPanel>
+                        <ui:FontIcon FontSize="18" Glyph="&#xE713;" />
+                        <TextBlock Margin="-2,0,0,0" Text="设置" />
+                    </StackPanel>
+                </ui:NavigationViewItem>
+            </ui:NavigationView.FooterMenuItems>
+            <Grid>
+                <TextBlock Name="Header" Margin="15,10,15,0" FontWeight="Black" FontSize="28" />
+                <ui:Frame Name="NavigationView_Frame" Margin="15,52,15,0" />
+            </Grid>
+        </ui:NavigationView>
 
-		<!--<ScrollViewer Width="300" Margin="0,45,0,0" HorizontalAlignment="Right">
+        <!--<ScrollViewer Width="300" Margin="0,45,0,0" HorizontalAlignment="Right">
 			<StackPanel Name="Notice_StackPanel">
 				<NotificationCard Width="300">
 					<StackPanel>
@@ -129,5 +129,15 @@
 				</NotificationCard>
 			</StackPanel>
 		</ScrollViewer>-->
-	</Grid>
+
+        <ui:ContentDialog PrimaryButtonText="取消" CloseButtonText="更新" DefaultButton="Close"
+                          Name="Update_ContentDialog">
+            <ScrollViewer Width="500" MaxHeight="320">
+                <StackPanel>
+                    <TextBlock Name="Update_Version" />
+                    <TextBlock TextWrapping="Wrap" Name="Update_Logs" />
+                </StackPanel>
+            </ScrollViewer>
+        </ui:ContentDialog>
+    </Grid>
 </Window>

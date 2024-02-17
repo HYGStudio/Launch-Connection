@@ -1,12 +1,11 @@
 using Avalonia.Controls;
 
-namespace Launch_Connection.Views
+namespace Launch_Connection.Views;
+
+public partial class SettingsPage : UserControl
 {
-    public partial class SettingsPage : UserControl
+    public SettingsPage()
     {
-        public SettingsPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

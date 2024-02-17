@@ -1,49 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-    <ApplicationIcon>Assets\logo.ico</ApplicationIcon>
-    <OutputType>Library</OutputType>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <ApplicationIcon>Assets\logo.ico</ApplicationIcon>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
 
-  
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\**" />
-  </ItemGroup>
 
-  
-  <ItemGroup>
-    <Compile Remove="Services\AppBuilderExtensions.cs" />
-  </ItemGroup>
+    <ItemGroup>
+        <AvaloniaResource Include="Assets\**"/>
+    </ItemGroup>
 
-  
-  <ItemGroup>
-    <None Remove="Fonts\SegoeIcons.ttf" />
-  </ItemGroup>
 
-  
-  <ItemGroup>
-    <Content Include="Assets\logo.ico" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Services\AppBuilderExtensions.cs"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.4" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.4" />
 
-    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.4" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-    <PackageReference Include="DialogHost.Avalonia" Version="0.7.7" />
-    <PackageReference Include="FluentAvaloniaUI" Version="2.0.5" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="Fonts\SegoeIcons.ttf"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="Fonts\SegoeIcons.ttf" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="String\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Content Include="Assets\logo.ico"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.0.4"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.4"/>
+
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.4"/>
+        <PackageReference Include="FluentAvalonia.ProgressRing" Version="1.69.2"/>
+        <PackageReference Include="FluentAvaloniaUI" Version="2.0.5"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
+        <PackageReference Include="RivFox.Network" Version="1.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Fonts\SegoeIcons.ttf"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="String\"/>
+    </ItemGroup>
 </Project>
